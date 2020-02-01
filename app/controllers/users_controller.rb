@@ -3,11 +3,11 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    render json: @users
+    render json: @users, except: %i[created_at updated_at password]
   end
 
   def show
-    render json: @user, except: %i[password_digest created_at updated_at], status: :ok
+    render json: @user, except: %i[password created_at updated_at], status: :ok
   end
 
   def create
