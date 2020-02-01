@@ -19,6 +19,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def verify
+    @user = {
+      id: @current_user[:id],
+      username: @current_user[:username]
+    }
+    render json: @user
+  end
+
   private
 
   def set_user
