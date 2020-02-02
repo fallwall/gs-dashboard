@@ -24,12 +24,13 @@ class App extends Component {
   }
 
   handleLogin = async (ev) => {
+    ev.preventDefault();
     const loginData = {
       username: this.state.userForm.username,
       password: this.state.userForm.password
     }
     const user = await loginUser(loginData);
-    console.log(user);
+    console.log("something happened.");
     this.setState({
       currentUser: user
     })
@@ -40,7 +41,8 @@ class App extends Component {
     this.handleLogin();
   }
 
-  handleLogout = () => {
+  handleLogout = (ev) => {
+    ev.preventDefault();
     localStorage.removeItem("jwt");
     this.setState({
       currentUser: null
@@ -57,7 +59,8 @@ class App extends Component {
     }));
   }
 
-  switchForm = () => {
+  switchForm = (ev) => {
+    ev.preventDefault();
     this.setState(prevState => ({
       isLoggingin: !prevState.isLoggingin
     }))
