@@ -5,7 +5,7 @@ import {
   registerUser,
   verifyToken
 } from './services/api';
-
+import { Route } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   handleLogout = (ev) => {
-    ev.preventDefault();
+    // ev.preventDefault();
     localStorage.removeItem("jwt");
     this.setState({
       currentUser: null
@@ -78,15 +78,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>front end begins</p>
-        <UserForm
-          userForm={this.state.userForm}
-          handleChange={this.handleChange}
-          handleRegister={this.handleRegister}
-          handleLogin={this.handleLogin}
-          isLoggingin={this.state.isLoggingin}
-          switchForm={this.switchForm}
-        />
+        <div className="nav">
+          <UserForm
+            currentUser={this.state.currentUser}
+            userForm={this.state.userForm}
+            handleChange={this.handleChange}
+            handleRegister={this.handleRegister}
+            handleLogin={this.handleLogin}
+            handleLogout={this.handleLogout}
+            isLoggingin={this.state.isLoggingin}
+            switchForm={this.switchForm}
+          />
+        </div>
+  
       </div>
     )
   }

@@ -1,0 +1,44 @@
+.App {
+  /* height: 100%;
+  width:100%;
+  z-index: -1; */
+  background-image: url("https://i.imgur.com/DKr37W1.png");
+  background-repeat: repeat;
+}
+
+.nav {
+  overflow: hidden;
+  /* background-color: white; */
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.userform form {
+  display:flex;
+}
+
+.userform-item {
+  justify-content: flex-end;
+}
+
+.userform-item input, .userform {
+  display: inline;
+}
+
+.button, input {
+  border: black solid 2px;
+  margin: 5px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+
+.non-button {
+  border:none;
+  color: darkgray;
+}
+
+.non-button:hover {
+  color:black;
+}
