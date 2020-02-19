@@ -27,7 +27,7 @@ class App extends Component {
         tripName: null,
         startDate: null,
         endDate: null,
-        focusedInput: null
+        focusedInput: "startDate"
       }
     }
   }
@@ -95,13 +95,25 @@ class App extends Component {
     }))
   }
 
-  dateSelected = () => {
-
+  onDatesChange = (startDate, endDate) => {
+    this.setState(prevState => ({
+      tripForm: {
+        ...prevState.tripFrom,
+        startDate,
+        endDate
+      }
+    }))
   }
 
-  focusedInoutSelected = () => {
-
-  }
+  focusedInputSelected = (focusedInput) => {
+    this.setState(prevState => ({
+      tripForm: {
+        ...prevState.tripForm,
+        focusedInput: !focusedInput ? "startDate" : focusedInput
+      }
+    })
+    )
+  };
 
   render() {
     return (
@@ -125,8 +137,8 @@ class App extends Component {
             startDate={this.state.tripForm.startDate}
             endDate={this.state.tripForm.endDate}
             focusedInput={this.state.tripForm.focusedInput}
-            focusedInoutSelected={this.focusedInoutSelected}
-            dateSelected={this.dateSelected}
+            focusedInputSelected={this.focusedInputSelected}
+            onDatesChange={this.onDatesChange}
           />
         </div>
 
