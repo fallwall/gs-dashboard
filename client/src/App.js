@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import UserForm from './components/UserForm';
 import Intro from './pages/Intro';
+import InitTrip from './pages/InitTrip';
 import {
   loginUser,
   registerUser,
   verifyToken
 } from './services/api';
+import 'react-dates/initialize';
 import { Route } from 'react-router-dom';
 import './App.css';
 
@@ -20,6 +22,12 @@ class App extends Component {
         email: "",
         password: "",
         email: ""
+      },
+      tripForm: {
+        tripName: null,
+        startDate: null,
+        endDate: null,
+        focusedInput: null
       }
     }
   }
@@ -76,6 +84,25 @@ class App extends Component {
     }
   }
 
+  changeTripName = (ev) => {
+    console.log(ev.target);
+    const { value } = ev.target;
+    this.setState(prevState => ({
+      tripForm: {
+        ...prevState.tripFrom,
+        tripName: value
+      }
+    }))
+  }
+
+  dateSelected = () => {
+
+  }
+
+  focusedInoutSelected = () => {
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -90,9 +117,19 @@ class App extends Component {
             isLoggingin={this.state.isLoggingin}
             switchForm={this.switchForm}
           />
-          <Intro />
+          <Intro
+          />
+          <InitTrip
+            tripName={this.state.tripForm.tripName}
+            changeTripName={this.changeTripName}
+            startDate={this.state.tripForm.startDate}
+            endDate={this.state.tripForm.endDate}
+            focusedInput={this.state.tripForm.focusedInput}
+            focusedInoutSelected={this.focusedInoutSelected}
+            dateSelected={this.dateSelected}
+          />
         </div>
-  
+
       </div>
     )
   }
