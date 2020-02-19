@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserForm from './components/UserForm';
+import Intro from './pages/Intro';
 import {
   loginUser,
   registerUser,
@@ -89,6 +90,7 @@ class App extends Component {
             isLoggingin={this.state.isLoggingin}
             switchForm={this.switchForm}
           />
+          <Intro />
         </div>
   
       </div>

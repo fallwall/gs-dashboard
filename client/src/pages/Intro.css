@@ -1,0 +1,13 @@
+.intro h1 span:nth-child(2n+1) {
+  animation: fadein 2s;
+}
+
+.intro h1 span:nth-child(2n) {
+  animation: fadein 2s;
+  animation-delay: 1s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

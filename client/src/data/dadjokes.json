@@ -1,0 +1,64 @@
+{
+  "jokes": [
+    {
+      "id": 1,
+      "line": "What did the ocean say to the shore?",
+      "pun": "Nothing, it just waved."
+    },
+    {
+      "id": 2,
+      "line": "What’s worse than raining cats & dogs?",
+      "pun": "Hailing taxis."
+    },
+    {
+      "id": 3,
+      "line": "How does a penguin build its house?",
+      "pun": "Igloos it together."
+    },
+    {
+      "id": 4,
+      "line": "Where do sharks go on vacation?",
+      "pun": "Fin-land."
+    },
+    {
+      "id": 5,
+      "line": "What did the pig say on the beach?",
+      "pun": "I’m bacon!"
+    },
+    {
+      "id": 6,
+      "line": "Why did the librarian get kicked off the plane?",
+      "pun": "It was overbooked."
+    },
+    {
+      "id": 7,
+      "line": "What travels around the world but stays in one corner?",
+      "pun": "A stamp."
+    },
+    {
+      "id": 8,
+      "line": "What sound does a bouncing plane make?",
+      "pun": "Boeing!"
+    },
+    {
+      "id": 9,
+      "line": "What happens when you wear a watch on a plane?",
+      "pun": "Time flies"
+    },
+    {
+      "id": 10,
+      "line": "The food provided on the small aircraft wasn’t good...",
+      "pun": "It was a little plane."
+    },
+    {
+      "id": 11,
+      "line": "What do you call a fake noodle?",
+      "pun": "An impasta."
+    },
+    {
+      "id": 12,
+      "line": "Did you hear about the restaurant on the moon?",
+      "pun": "Great food, no atmosphere."
+    }
+  ]
+}
