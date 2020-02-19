@@ -1,3 +1,14 @@
+.intro {
+  border: black 2px solid;
+  text-align: center;
+  padding: 5%;
+}
+
+.intro h1 {
+  text-transform: uppercase;
+  margin: 5% auto;
+}
+
 .intro h1 span:nth-child(2n+1) {
   animation: fadein 2s;
 }
@@ -5,6 +16,18 @@
 .intro h1 span:nth-child(2n) {
   animation: fadein 2s;
   animation-delay: 1s;
+}
+
+.intro h2 {
+  animation: fadein 2s;
+  animation-delay: 2s;
+  animation-fill-mode: backwards;
+}
+
+.intro h3 {
+  animation: fadein 2s;
+  animation-delay: 5s;
+  animation-fill-mode: backwards;
 }
 
 @keyframes fadein {
