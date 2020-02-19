@@ -18,7 +18,8 @@ export default function Intro() {
         <span>n</span>
         <span>e</span>
         <span>r</span>
-        </h1>
+      </h1>
+
       <h2>{data.jokes[randIndex].line}</h2>
       <h3>{data.jokes[randIndex].pun}</h3>
     </div>
