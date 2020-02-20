@@ -11,9 +11,13 @@ import 'react-dates/initialize';
 import { Route } from 'react-router-dom';
 import './App.css';
 
+
+import "react-dates/lib/css/_datepicker.css";
+
+
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       currentUser: null,
       isLoggingin: true,
@@ -105,11 +109,12 @@ class App extends Component {
     }))
   }
 
-  focusedInputSelected = (focusedInput) => {
+  onFocusChange = (focusedInput) => {
     this.setState(prevState => ({
       tripForm: {
         ...prevState.tripForm,
-        focusedInput: !focusedInput ? "startDate" : focusedInput
+        // focusedInput: !focusedInput ? "startDate" : focusedInput
+        focusedInput
       }
     })
     )
@@ -137,7 +142,7 @@ class App extends Component {
             startDate={this.state.tripForm.startDate}
             endDate={this.state.tripForm.endDate}
             focusedInput={this.state.tripForm.focusedInput}
-            focusedInputSelected={this.focusedInputSelected}
+            onFocusChange={this.onFocusChange}
             onDatesChange={this.onDatesChange}
           />
         </div>

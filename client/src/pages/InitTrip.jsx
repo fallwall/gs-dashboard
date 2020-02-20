@@ -14,7 +14,7 @@ const InitTrip = (props) => {
         startDate={props.startDate}
         endDate={props.endDate}
         focusedInput={props.focusedInput}
-        focusedInputSelected={props.focusedInputSelected}
+        onFocusChange={props.onFocusChange}
         onDatesChange={props.onDatesChange}
       />
       <TripAddContentForm />
