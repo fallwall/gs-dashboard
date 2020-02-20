@@ -8,11 +8,7 @@ import {
   verifyToken
 } from './services/api';
 import 'react-dates/initialize';
-import moment from 'moment';
-import { Route } from 'react-router-dom';
 import './App.css';
-
-
 import "react-dates/lib/css/_datepicker.css";
 
 
@@ -81,22 +77,22 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
-    const today = moment(new Date());
-    console.log(today.format("DD-MM-YYYY"));
+    // const today = moment(new Date());
+    // console.log(today.format("DD-MM-YYYY"));
     const user = await verifyToken();
     if (user) {
       this.setState({
         currentUser: user
       })
     }
-    if (today) { 
-      this.setState(prevState => ({
-        tripForm: {
-          ...prevState.tripForm,
-          startDate: today
-        }
-      }))
-    }
+    // if (today) { 
+    //   this.setState(prevState => ({
+    //     tripForm: {
+    //       ...prevState.tripForm,
+    //       startDate: today
+    //     }
+    //   }))
+    // }
   }
 
   changeTripName = (ev) => {
@@ -110,14 +106,15 @@ class App extends Component {
     }))
   }
 
-  onDatesChange = (ev) => {
-    console.log(ev);
-    const { startDate, endDate } = ev;
+  onDatesChange = (t) => {
+    console.log(t);
+    const { startDate, endDate } = t;
+    // startDate && endDate &&
     this.setState(prevState => ({
       tripForm: {
         ...prevState.tripFrom,
-        startDate: startDate
-        // endDate: endDate
+        startDate: startDate,
+        endDate: endDate
       }
     }))
   }
@@ -156,7 +153,7 @@ class App extends Component {
             endDate={this.state.tripForm.endDate}
             focusedInput={this.state.tripForm.focusedInput}
             onFocusChange={this.onFocusChange}
-            onDatesChange={this.onDatesChange}
+            onDatesChange={(t)=>this.onDatesChange(t)}
           />
         </div>
 
