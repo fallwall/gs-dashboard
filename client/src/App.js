@@ -8,6 +8,7 @@ import {
   verifyToken
 } from './services/api';
 import 'react-dates/initialize';
+import moment from 'moment';
 import { Route } from 'react-router-dom';
 import './App.css';
 
@@ -80,11 +81,21 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
+    const today = moment(new Date());
+    console.log(today.format("DD-MM-YYYY"));
     const user = await verifyToken();
     if (user) {
       this.setState({
         currentUser: user
       })
+    }
+    if (today) { 
+      this.setState(prevState => ({
+        tripForm: {
+          ...prevState.tripForm,
+          startDate: today
+        }
+      }))
     }
   }
 
@@ -99,12 +110,14 @@ class App extends Component {
     }))
   }
 
-  onDatesChange = (startDate, endDate) => {
+  onDatesChange = (ev) => {
+    console.log(ev);
+    const { startDate, endDate } = ev;
     this.setState(prevState => ({
       tripForm: {
         ...prevState.tripFrom,
-        startDate,
-        endDate
+        startDate: startDate
+        // endDate: endDate
       }
     }))
   }
