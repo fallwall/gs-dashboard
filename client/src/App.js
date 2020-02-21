@@ -28,8 +28,7 @@ class App extends Component {
       tripForm: {
         tripName: null,
         startDate: null,
-        endDate: null,
-        focusedInput: "stratDate"
+        endDate: null
       }
     }
   }
@@ -115,30 +114,24 @@ class App extends Component {
     }))
   }
 
-  onDatesChange = ({ startDate, endDate }) => {
-    const { stateDateWrapper } = this.props;
-    // const { startDate, endDate } = t;
-    // startDate && endDate &&
-
+  onStartDateChange = (ev) => {
+    const startDate = ev.target.value;
     this.setState(prevState => ({
       tripForm: {
         ...prevState.tripFrom,
-        startDate: startDate && stateDateWrapper(startDate),
-        endDate: endDate && stateDateWrapper(endDate)
+        startDate: startDate
       }
     }))
   }
-
-  onFocusChange = (focusedInput) => {
+  onEndDateChange = (ev) => {
+    const endDate = ev.target.value;
     this.setState(prevState => ({
       tripForm: {
-        ...prevState.tripForm,
-        // focusedInput: !focusedInput ? "startDate" : focusedInput
-        focusedInput
+        ...prevState.tripFrom,
+        endstDate: endDate
       }
-    })
-    )
-  };
+    }))
+  }
 
   render() {
     const { focusedInput, startDate, endDate, tripName } = this.state.tripForm;
@@ -161,12 +154,11 @@ class App extends Component {
           }
           <InitTrip
             tripName={tripName}
-            focusedInput={focusedInput}
             startDate={startDate}
             endDate={endDate}
             changeTripName={this.changeTripName}
-            onFocusChange={this.onFocusChange}
-            onDatesChange={this.onDatesChange}
+            onStartDateChange={this.onStartDateChange}
+            onEndDateChange={this.onEndDateChange}
           />
         </div>
 

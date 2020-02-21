@@ -5,13 +5,13 @@ import 'react-dates/lib/css/_datepicker.css';
 import moment from "moment";
 
 const TripDateForm = (props) => {
-  // const { focusedInput, startDate, endDate, onFocusChange, onDatesChange } = props;
+  const { startDate, endDate, onStartDateChange, onEndDateChange } = props;
   return (
     <div className="trip-date-form">
       <label for="trip_start_date">Start Date:</label>
-      <input type="date" id="trip_start_date" name="trip_start_date" />
+      <input onChange={onStartDateChange} value={startDate} type="date" id="trip_start_date" name="trip_start_date" />
       <label for="trip_end_date">End Date:</label>
-      <input type="date" id="trip_end_date" name="trip_end_date" />
+      <input onChange={onEndDateChange} value={endDate} type="date" id="trip_end_date" name="trip_end_date" />
       {/* <DateRangePicker
         // {...props}
         startDate={startDate}

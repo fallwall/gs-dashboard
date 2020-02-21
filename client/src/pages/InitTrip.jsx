@@ -7,33 +7,33 @@ import TripInitFrame from '../components/TripInitFrame';
 const InitTrip = (props) => {
   return (
     <div className="trip-init">
-      <TripInitFrame>
-        <TripNameForm
-          step={1}
-          tripName={props.tripName}
-          changeTripName={props.changeTripName}
-        />
-      </TripInitFrame>
-      {props.tripName &&
+      <form>
         <TripInitFrame>
-        <TripDateForm
-          {...props}
-            step={2}
-            startDate={props.startDate}
-            endDate={props.endDate}
-            focusedInput={props.focusedInput}
-            onFocusChange={props.onFocusChange}
-            onDatesChange={props.onDatesChange}
+          <TripNameForm
+            step={1}
+            tripName={props.tripName}
+            changeTripName={props.changeTripName}
           />
         </TripInitFrame>
-      }
-      {props.endDate &&
-        <TripInitFrame>
-          <TripAddContentForm
-            step={3} />
-        </TripInitFrame>
+        {props.tripName !==null &&
+          <TripInitFrame>
+            <TripDateForm
+              step={2}
+              startDate={props.startDate}
+              endDate={props.endDate}
+              onStartDateChange={props.onStartDateChange}
+              onEndDateChange={props.onEndDateChange}
+            />
+          </TripInitFrame>
+        }
+        {props.endDate !== null &&
+          <TripInitFrame>
+            <TripAddContentForm
+              step={3} />
+          </TripInitFrame>
 
-      }
+        }
+      </form>
     </div>
   )
 }
