@@ -18,6 +18,7 @@ class App extends Component {
     this.state = {
       currentUser: null,
       isLoggingin: true,
+      isIntro: true,
       userForm: {
         username: "",
         email: "",
@@ -76,6 +77,14 @@ class App extends Component {
     }))
   }
 
+  closeIntro = () => {
+    setTimeout(() => {
+      this.setState({
+        isIntro: false
+      })
+    }, 7000);
+  }
+
   componentDidMount = async () => {
     // const today = moment(new Date());
     // console.log(today.format("DD-MM-YYYY"));
@@ -93,6 +102,7 @@ class App extends Component {
     //     }
     //   }))
     // }
+    this.closeIntro();
   }
 
   changeTripName = (ev) => {
@@ -144,8 +154,9 @@ class App extends Component {
             isLoggingin={this.state.isLoggingin}
             switchForm={this.switchForm}
           />
-          <Intro
-          />
+          {
+            this.state.isIntro && <Intro />
+          }
           <InitTrip
             tripName={this.state.tripForm.tripName}
             changeTripName={this.changeTripName}
@@ -153,7 +164,7 @@ class App extends Component {
             endDate={this.state.tripForm.endDate}
             focusedInput={this.state.tripForm.focusedInput}
             onFocusChange={this.onFocusChange}
-            onDatesChange={(t)=>this.onDatesChange(t)}
+            onDatesChange={(t) => this.onDatesChange(t)}
           />
         </div>
 
