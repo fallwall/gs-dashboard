@@ -11,10 +11,10 @@ import 'react-dates/initialize';
 import './App.css';
 import "react-dates/lib/css/_datepicker.css";
 
-
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       currentUser: null,
       isLoggingin: true,
@@ -29,7 +29,7 @@ class App extends Component {
         tripName: null,
         startDate: null,
         endDate: null,
-        focusedInput: "startDate"
+        focusedInput: "stratDate"
       }
     }
   }
@@ -106,7 +106,6 @@ class App extends Component {
   }
 
   changeTripName = (ev) => {
-    console.log(ev.target);
     const { value } = ev.target;
     this.setState(prevState => ({
       tripForm: {
@@ -116,15 +115,16 @@ class App extends Component {
     }))
   }
 
-  onDatesChange = (t) => {
-    console.log(t);
-    const { startDate, endDate } = t;
+  onDatesChange = ({ startDate, endDate }) => {
+    const { stateDateWrapper } = this.props;
+    // const { startDate, endDate } = t;
     // startDate && endDate &&
+
     this.setState(prevState => ({
       tripForm: {
         ...prevState.tripFrom,
-        startDate: startDate,
-        endDate: endDate
+        startDate: startDate && stateDateWrapper(startDate),
+        endDate: endDate && stateDateWrapper(endDate)
       }
     }))
   }
@@ -141,6 +141,8 @@ class App extends Component {
   };
 
   render() {
+    const { focusedInput, startDate, endDate, tripName } = this.state.tripForm;
+
     return (
       <div className="App">
         <div className="nav">
@@ -158,13 +160,13 @@ class App extends Component {
             this.state.isIntro && <Intro />
           }
           <InitTrip
-            tripName={this.state.tripForm.tripName}
+            tripName={tripName}
+            focusedInput={focusedInput}
+            startDate={startDate}
+            endDate={endDate}
             changeTripName={this.changeTripName}
-            startDate={this.state.tripForm.startDate}
-            endDate={this.state.tripForm.endDate}
-            focusedInput={this.state.tripForm.focusedInput}
             onFocusChange={this.onFocusChange}
-            onDatesChange={(t) => this.onDatesChange(t)}
+            onDatesChange={this.onDatesChange}
           />
         </div>
 
@@ -172,5 +174,7 @@ class App extends Component {
     )
   }
 }
+
+
 
 export default App;

@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default function TrelloBoard() {
+const TrelloBoard = (props) => {
   return (
     <div>
-      
+
     </div>
   )
 }
+
+export default TrelloBoard;

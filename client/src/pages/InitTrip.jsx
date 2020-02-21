@@ -16,13 +16,14 @@ const InitTrip = (props) => {
       </TripInitFrame>
       {props.tripName &&
         <TripInitFrame>
-          <TripDateForm
+        <TripDateForm
+          {...props}
             step={2}
             startDate={props.startDate}
             endDate={props.endDate}
             focusedInput={props.focusedInput}
             onFocusChange={props.onFocusChange}
-            onDatesChange={(t) => props.onDatesChange(t)}
+            onDatesChange={props.onDatesChange}
           />
         </TripInitFrame>
       }
