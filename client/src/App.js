@@ -7,9 +7,9 @@ import {
   registerUser,
   verifyToken
 } from './services/api';
-import 'react-dates/initialize';
+
 import './App.css';
-import "react-dates/lib/css/_datepicker.css";
+
 
 class App extends Component {
   constructor(props) {
@@ -93,14 +93,7 @@ class App extends Component {
         currentUser: user
       })
     }
-    // if (today) { 
-    //   this.setState(prevState => ({
-    //     tripForm: {
-    //       ...prevState.tripForm,
-    //       startDate: today
-    //     }
-    //   }))
-    // }
+
     this.closeIntro();
   }
 
