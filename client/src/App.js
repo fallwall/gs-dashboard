@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import UserForm from './components/UserForm';
 import Intro from './pages/Intro';
 import InitTrip from './pages/InitTrip';
+import TrelloBoard from './pages/TrelloBoard';
 import {
   loginUser,
   registerUser,
@@ -127,7 +128,7 @@ class App extends Component {
   }
 
   render() {
-    const { focusedInput, startDate, endDate, tripName } = this.state.tripForm;
+    const { startDate, endDate, tripName } = this.state.tripForm;
 
     return (
       <div className="App">
@@ -153,6 +154,7 @@ class App extends Component {
             onStartDateChange={this.onStartDateChange}
             onEndDateChange={this.onEndDateChange}
           />
+          <TrelloBoard />
         </div>
 
       </div>
